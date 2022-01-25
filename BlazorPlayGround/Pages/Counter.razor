@@ -8,13 +8,21 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<BlazorPlayGround.Components.MySecondComponent CurrentCounterValue=@currentCount/>
+<BlazorPlayGround.Components.MySecondComponent CurrentCounterValue=@currentCount />
+
 
 @code {
     private int currentCount = 0;
 
-    private void IncrementCount()
+    private async Task IncrementCount()
     {
         currentCount++;
+        if (currentCount % 3 == 0)
+        {
+            await OneMultipleOfThree.InvokeAsync(currentCount);
+        }
     }
+    [Parameter]
+    public EventCallback<int> OneMultipleOfThree { get; set; }
+     
 }
