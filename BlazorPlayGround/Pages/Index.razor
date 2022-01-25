@@ -3,9 +3,21 @@
 <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
-<BlazorPlayGround.Components.MyFirstComponents/>
+<BlazorPlayGround.Components.MyFirstComponents />
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<Counter/> 
+<Counter OnMultipleOfThree=@UpdateLastMultipleOfThreeValue/>
+
+The last multiple of three = @LastMultipleOfThree;
+
+@code
+{
+    int LastMultipleOfThree = 0;
+
+    private void UpdateLastMultipleOfThreeValue(int value)
+    {
+        LastMultipleOfThree = value;
+    }
+}

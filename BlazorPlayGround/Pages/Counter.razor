@@ -19,10 +19,10 @@
         currentCount++;
         if (currentCount % 3 == 0)
         {
-            await OneMultipleOfThree.InvokeAsync(currentCount);
+            await OnMultipleOfThree.InvokeAsync(currentCount);
         }
     }
     [Parameter]
-    public EventCallback<int> OneMultipleOfThree { get; set; }
+    public EventCallback<int> OnMultipleOfThree { get; set; }
      
 }
