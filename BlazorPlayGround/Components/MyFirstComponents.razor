@@ -2,6 +2,19 @@
     CurrentCounterValue in MyFirstPracticeComponent is @CurrentCounterValue
 </div>
 
-@code{
-    private int CurrentCounterValue = 50;
+
+<button @onclick=UpdateCurrentCounterValue>Update</button>
+
+@code {
+    [Parameter]
+    public int CurrentCounterValue { get; set; }
+
+    [Parameter]
+    public EventCallback<int> CurrentCounterValueChanged { get; set; }
+
+    async Task UpdateCurrentCounterValue()
+    {
+        CurrentCounterValue++;
+        await CurrentCounterValueChanged.InvokeAsync(CurrentCounterValue);
+    }
 }

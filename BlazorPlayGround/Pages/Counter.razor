@@ -8,7 +8,10 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<BlazorPlayGround.Components.MyFirstComponents @bind-CurrentCounterValue=currentCount />
+
 <BlazorPlayGround.Components.MySecondComponent CurrentCounterValue=@currentCount />
+
 
 
 @code {
@@ -20,7 +23,7 @@
     private async Task IncrementCount()
     {
         currentCount++;
-        if (currentCount % 2 ==0)
+        if (currentCount % 2 == 0)
         {
             OnMultipleOfTwoAction?.Invoke(currentCount);
         }
