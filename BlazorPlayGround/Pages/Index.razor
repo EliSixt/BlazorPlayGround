@@ -8,16 +8,22 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<Counter OnMultipleOfThree=@UpdateLastMultipleOfThreeValue/>
+<Counter OnMultipleOfThree=@UpdateLastMultipleOfThreeValue
+         OnMultipleOfTwoAction=@UpdateLastMultipleOfTwoValue />
 
 The last multiple of three = @LastMultipleOfThree;
-
+The last mutiple of two = @LastMultipleOfTwo;
 @code
 {
+    int LastMultipleOfTwo = 0;
     int LastMultipleOfThree = 0;
 
     private void UpdateLastMultipleOfThreeValue(int value)
     {
         LastMultipleOfThree = value;
+    }
+    private void UpdateLastMultipleOfTwoValue(int value)
+    {
+        LastMultipleOfTwo = value;
     }
 }
