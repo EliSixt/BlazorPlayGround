@@ -8,6 +8,9 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
+<label>Name=@Name</label>
+<input @bind-value=Name/>
+
 <Counter OnMultipleOfThree=@UpdateLastMultipleOfThreeValue
          OnMultipleOfTwoAction=@UpdateLastMultipleOfTwoValue />
 
@@ -26,4 +29,8 @@ The last mutiple of two = @LastMultipleOfTwo;
     {
         LastMultipleOfTwo = value;
     }
+
+    private string Name;
+    private DateTime? DateOfBirth;
+    private decimal? BankBalance;
 }
